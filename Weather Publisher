@@ -1,4 +1,4 @@
-```
+
 import json
 import pandas as pd
 import asyncio
@@ -10,8 +10,8 @@ from pyensign.ensign import Ensign
 import nest_asyncio
 nest_asyncio.apply()
 
-os.environ["ENSIGN_CLIENT_ID"] = "AIKjCYdCzYxSffywKEMHhGdcTsTyEiYL"
-os.environ["ENSIGN_CLIENT_SECRET"] = "vZy4u7FDr1Pq5zBQky9eQuW9QL5E9IMM9cQJJZpRAILHowsozTkrUrBTiXGVxGjy"
+os.environ["ENSIGN_CLIENT_ID"] = "YOUR CLIENT ID"
+os.environ["ENSIGN_CLIENT_SECRET"] = "YOUR CLIENT SECRET"
 
 
 #Filtering the geo location to just DC
@@ -217,4 +217,4 @@ if __name__ == "__main__":
     publisher = WeatherPublisher()
     
     publisher.run()
-```
+
