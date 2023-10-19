@@ -1,4 +1,4 @@
-```python
+
 # Imports and .apply()
 import json
 import os
@@ -12,15 +12,14 @@ from datetime import datetime
 from collections import Counter
 from river import stream, preprocessing,ensemble
 from river import tree, compose, metrics
-```
-```python
+
 # Retrieve Ensign Credentials and Initialize Arrays
 ENSIGN_CREDS_PATH ='Ensign_Creds.json'
 
 Metro_arr = []
 count_arr = []
-```
-```python
+
+
 # Class to Encode Variables
 class CustomLabelEncoder:
     def __init__(self):
@@ -47,15 +46,14 @@ class CustomLabelEncoder:
     def inverse_transform(self, int_value):
         # Decode an integer back to its original label
         return self.int_to_label[int_value]
-```
-```python
+
 # Initialize label_encoder, model, scaler, and metric
 label_encoder = CustomLabelEncoder()
 model = tree.HoeffdingTreeClassifier()
 scaler = preprocessing.StandardScaler()
 metric = metrics.Accuracy()
-```
-```python
+
+
 # Initialize some lists for record keeping
 
 accuracylist=[]
@@ -67,8 +65,8 @@ predlist_decoded=[]
 
 # Initialize OneHotEncoder
 oh_encoder = preprocessing.OneHotEncoder(drop_zeros=True)
-```
-```python
+
+
 def W_M_Model1(event_norm, label_encoder, model, scaler, metric, oh_encoder):
     currentdict = event_norm
 
@@ -134,9 +132,7 @@ def W_M_Model1(event_norm, label_encoder, model, scaler, metric, oh_encoder):
 
     else:
         Correct_Incorrect_List.append(0)
-        decoded_yi = label_encoder.inverse_transform(yi)
-```
-```python
+
 '''
 get_updatesMetro runs and then waits until a metro event occures in the API. Once it occurs the print_updateMetro function is called
 to transform the event data inot a json object which is then pushed to the metro array for storage
@@ -155,8 +151,7 @@ async def print_updateMetro(event, label_encoder, model, scaler, metric):
     if event_norm not in Metro_arr:
         Metro_arr.append(event_norm)
         W_M_Model1(event_norm, label_encoder, model, scaler, metric,oh_encoder)
-```
-```python
+
 # Run it!
 asyncio.run(get_updatesMetro(label_encoder=label_encoder, model=model, scaler=scaler, metric=metric))
 ```
@@ -167,14 +162,12 @@ your_df = pd.DataFrame({'Column_Name': accuracylist})  # You can specify a colum
 
 # Save the Pandas DataFrame to a CSV file
 your_df.to_csv("accuracy.csv", index=False)
-```
-```python
+
 your_df = pd.DataFrame({'Column_Name': Correct_Incorrect_List})  # You can specify a column name here
 
 # Save the Pandas DataFrame to a CSV file
 your_df.to_csv("correctIncorrect.csv", index=False)
-```
-```python
+
 import csv
 file_names = ['accuracylist.csv', 'Correct_Incorrect_List.csv', 'truelist.csv', 'predlist.csv', 'truelist_decoded.csv', 'predlist_decoded.csv']
 
@@ -190,4 +183,3 @@ for data, file_name in zip(data_to_write, file_names):
         writer.writerow(data)
 
 print("CSV files have been created.")
-```
