@@ -1,5 +1,5 @@
 
-import json
+```import json
 import pandas as pd
 import asyncio
 from datetime import datetime
@@ -214,7 +214,7 @@ class WeatherPublisher:
             
 
 if __name__ == "__main__":
-    publisher = WeatherPublisher()
+    publisher = WeatherPublisher()```
     
     publisher.run()
 
