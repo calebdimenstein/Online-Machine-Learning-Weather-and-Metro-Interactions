@@ -1,4 +1,4 @@
-```python
+
 import os
 import json
 import asyncio
@@ -14,8 +14,7 @@ os.environ["ENSIGN_CLIENT_ID"] = "YOUR ENSIGN ID"
 os.environ["ENSIGN_CLIENT_SECRET"] = "YOUR ENSIGN SECRET"
 os.environ['WMATA_KEY']='YOUR WMATA KEY'
 ################################################################
-```
-```python
+
 
 ME = "(https://rotational.io/data-playground/dc-metro, "YOUR EMAIL")"
 
