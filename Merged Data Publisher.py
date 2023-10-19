@@ -19,7 +19,7 @@ Create an Ensign_Creds json file that contains your ensign creds in the below fo
 }
 
 ENSIGN_CREDS_PATH = 'Ensign_Creds.json'
-
+'''
 '''
 Function that take a metro event and the entire weather events array. It takes the date of the
 metro event and finds the average elements in the weather dictionaries that match the same
