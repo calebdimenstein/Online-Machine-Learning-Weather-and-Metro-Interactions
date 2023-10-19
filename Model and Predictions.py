@@ -154,8 +154,8 @@ async def print_updateMetro(event, label_encoder, model, scaler, metric):
 
 # Run it!
 asyncio.run(get_updatesMetro(label_encoder=label_encoder, model=model, scaler=scaler, metric=metric))
-```
-```python
+
+
 import pandas as pd
 # Save recordkeeping
 your_df = pd.DataFrame({'Column_Name': accuracylist})  # You can specify a column name here
