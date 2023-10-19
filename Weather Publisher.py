@@ -1,4 +1,4 @@
-```python
+
 import json
 import pandas as pd
 import asyncio
@@ -13,8 +13,7 @@ nest_asyncio.apply()
 os.environ["ENSIGN_CLIENT_ID"] = "YOUR CLIENT ID"
 os.environ["ENSIGN_CLIENT_SECRET"] = "YOUR CLIENT SECRET"
 
-```
-```python
+
 #Filtering the geo location to just DC
 LOCS = {
     "DC": {"lat": "38.9072", "long": "-77.0369"},
@@ -218,4 +217,4 @@ if __name__ == "__main__":
     publisher = WeatherPublisher()
     
     publisher.run()
-```
+
