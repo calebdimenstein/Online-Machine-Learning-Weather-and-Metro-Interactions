@@ -1,4 +1,4 @@
-```
+
 import os
 import json
 import asyncio
@@ -183,4 +183,4 @@ class MetroPublisher:
 if __name__ == "__main__":
     publisher = MetroPublisher()
     publisher.run()
-```
+
