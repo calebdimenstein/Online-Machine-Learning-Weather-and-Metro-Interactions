@@ -1,4 +1,4 @@
-```python
+
 import json
 import os
 import re
@@ -10,18 +10,16 @@ from pyensign.ensign import authenticate, publisher, subscriber
 from datetime import datetime
 from collections import Counter
 import time
-```
-```python
+
 '''
 Create an Ensign_Creds json file that contains your ensign creds in the below format
 {
   "ClientID" : "YOUR CLIENT ID"
   "ClientSecret" : "YOUR CLIENT SECRET"
 }
-'''
+
 ENSIGN_CREDS_PATH = 'Ensign_Creds.json'
-```
-```python
+
 '''
 Function that take a metro event and the entire weather events array. It takes the date of the
 metro event and finds the average elements in the weather dictionaries that match the same
@@ -72,8 +70,7 @@ def merge_data(Weather_arr, Metro_event):
     Metro_event['precipitation_prob'] = avg_precipitation_prob
    
     return Metro_event
-```
-```python
+
 Metro_arr = []
 count_arr = []
 '''
@@ -100,8 +97,7 @@ async def print_updateMetro(event):
     
     await to_topic(Weather_arr, Metro_arr, len(count_arr) - 1)
     print(event_norm)
-```
-```python
+
 Weather_arr = []
 '''
 Subscriber that takes the data as it comes in and pushes it into the weather_arr object
@@ -126,8 +122,7 @@ async def print_updateWeather(event):
         Weather_arr.append(event_norm)
     #await asyncio.sleep(1)
     print(event_norm)
-```
-```python
+
 flag = []
 '''
 Publishes the output from the merge_data function (a dictionary that will be pushed into the machine learning model) into the Ensign topic
@@ -151,8 +146,7 @@ async def to_topic(Weather_arr, Metro_arr, count_to_topic):
         
         #await get_updatesMetro()
 
-```
-```python
+
 '''
 Loops through the asyncrenous subscribers Weather and Metro topics and puts the data into
 seperate arrays so that data manipulation can happen
@@ -162,4 +156,4 @@ loop = asyncio.get_event_loop()
 tasks = [get_updatesWeather(), get_updatesMetro()]
 loop.run_until_complete(asyncio.gather(*tasks))
 loop.close()
-```
+
